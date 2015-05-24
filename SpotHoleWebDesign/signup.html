@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!-- 
+  Codeday2015
+  Date: May 24 2015
+  ~~~~~~~~~~~~~
+  Web Designs: Glenn Chon
+  Database and Server: Derrick Duncan
+  Designs and Consulting: Jason Fisch
+ -->
+<html>
+	<head>
+		<title>SpotHole</title>
+		<meta name="description" content="Inform Philly About PotHoles">
+		<meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+		
+		<!-- Bootstrap -->
+		<link href = "css/bootstrap.min.css" rel = "stylesheet">
+		
+		<!-- Custom CSS -->
+		<link rel="stylesheet" href="css/styles.css">
+		
+		<!-- Normalize to clean up & standardize the browser default styles: http://necolas.github.io/normalize.css/ -->
+		<link rel="stylesheet" href="css/normalize.css">
+	</head>
+	<body>
+	
+<!-- Logo -->
+		
+		<div class = "logo">
+			<img src = "images/vintageSpotHole.png">
+		</div>		
+
+<!-- Signup -->
+
+		<div class="signup">
+			<div class="form-group">
+				<label class="col-lg-2 control-label" for="first_name">First:</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name"/></input>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="last_name" class ="col-lg-2 control-label">Last:</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name"></input>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="user_name" class ="col-lg-2 control-label">Username:</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" id="user_name" name="user_name" placeholder="Username"></input>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="email" class="col-lg-2 control-label">Email:</label>
+				<div class="col-lg-9">
+					<input type="email" class="form-control" id="email" name="email" placeholder="You@Example.com"></input>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="password" class="col-lg-2 control-label">Password:</label>
+				<div class="col-lg-9">
+					<input type="password" class="form-control" id="password" name="password" placeholder="********"></input>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="repass" class="col-lg-2 control-label">Re-enter Password:</label>
+				<div class="col-lg-9">
+					<input type="password" class="form-control" id="repass" name="repass" placeholder="********"></input>
+				</div>
+			</div>
+			<div class = "modal-footer">
+				<button class="btn btn-class" type="submit" value="submit" id="submit">Submit</button>
+			</div>
+		</div>
+		
+		<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		
+	</body>
+
+</html>

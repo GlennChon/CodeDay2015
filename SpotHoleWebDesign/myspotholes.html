@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<!-- 
+  Codeday2015
+  Date: May 24 2015
+  ~~~~~~~~~~~~~
+  Web Designs: Glenn Chon
+  Database and Server: Derrick Duncan
+  Designs and Consulting: Jason Fisch
+ -->
+<html>
+	<head>
+		<title>SpotHole</title>
+		<meta name="description" content="Inform Philly About PotHoles">
+		<meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+		
+		<!-- Bootstrap -->
+		<link href="css/bootstrap.min.css" rel ="stylesheet">
+		
+		<!-- Custom CSS -->
+		<link rel="stylesheet" href="css/styles.css">
+		
+		<!-- Normalize to clean up & standardize the browser default styles: http://necolas.github.io/normalize.css/ -->
+		<link rel="stylesheet" href="css/normalize.css">
+		
+		<!-- Jquery 1.11.2 -->
+		<script src="js/jquery-1.11.2.min.js"></script>
+		
+		<!-- Bootstrap.js -->
+		<script src="js/bootstrap.min.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js"></script>
+		<script>
+		  function initialize() {
+			var mapCanvas = document.getElementById('map-canvas');
+			var mapOptions = {
+			  center: new google.maps.LatLng(39.953452, -75.157858),
+			  zoom: 11,
+			  mapTypeId: google.maps.MapTypeId.ROADMAP
+			}
+			var map = new google.maps.Map(mapCanvas, mapOptions)
+		  }
+		  google.maps.event.addDomListener(window, 'load', initialize);
+		</script>
+	</head>
+	<body>
+	
+<!-- navbar -->
+		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="slide-nav">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-toggle"> 
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</a>
+					<a class="navbar-brand"></a>
+				</div>
+				<div id="slidemenu">
+					<ul class="nav navbar-nav">
+						<li class="top"><a href="main.html">Map</a></li>
+						<li><a href="myspotholes.html">My SpotHoles</a></li>
+						<li><a href="#options">Options</a></li>
+						<li><a href="#contact">Sign Out</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+<!-- gallery -->
+		<div class="gallery">
+			<ul>
+			<!-- need to be able to add more as user spots more -->
+				<li class="gal-item"><img class ="gal-pic" src = "#place image via php?">timestamp</li>
+				<li class="gal-item"><img class ="gal-pic" src = "#place image via php?">timestamp</li>
+				<li class="gal-item"><img class ="gal-pic" src = "#place image via php?">timestamp</li>
+				<li class="gal-item"><img class ="gal-pic" src = "#place image via php?">timestamp</li>
+				<li class="gal-item"><img class ="gal-pic" src = "#place image via php?">timestamp</li>
+			</ul>
+		</div>
+	</body>
+	<script>
+		$(document).ready(function () {
+
+
+		//stick in the fixed 100% height behind the navbar but don't wrap it
+		$('#slide-nav.navbar .container').append($('<div id="navbar-height-col"></div>'));
+
+		// Enter your ids or classes
+		var toggler = '.navbar-toggle';
+		var pagewrapper = '#page-content';
+		var navigationwrapper = '.navbar-header';
+		var menuwidth = '100%'; // the menu inside the slide menu itself
+		var slidewidth = '80%';
+		var menuneg = '-100%';
+		var slideneg = '-80%';
+
+
+		$("#slide-nav").on("click", toggler, function (e) {
+
+			var selected = $(this).hasClass('slide-active');
+
+			$('#slidemenu').stop().animate({
+				left: selected ? menuneg : '0px'
+			});
+
+			$('#navbar-height-col').stop().animate({
+				left: selected ? slideneg : '0px'
+			});
+
+			$(pagewrapper).stop().animate({
+				left: selected ? '0px' : slidewidth
+			});
+
+			$(navigationwrapper).stop().animate({
+				left: selected ? '0px' : slidewidth
+			});
+
+
+			$(this).toggleClass('slide-active', !selected);
+			$('#slidemenu').toggleClass('slide-active');
+
+
+			$('#page-content, .navbar, body, .navbar-header').toggleClass('slide-active');
+
+
+		});
+
+
+		var selected = '#slidemenu, #page-content, body, .navbar, .navbar-header';
+
+
+		$(window).on("resize", function () {
+
+			if ($(window).width() > 767 && $('.navbar-toggle').is(':hidden')) {
+				$(selected).removeClass('slide-active');
+			}
+
+
+		});
+
+	});
+	</script>
+</html>
